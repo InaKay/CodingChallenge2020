@@ -3,8 +3,8 @@ package src;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Hello World");
+		CSVReader csvReader = new CSVReader("./assets/msg_standorte_deutschland.csv", "", ",");
+		csvReader.readCSV();
 	}
 
 }
