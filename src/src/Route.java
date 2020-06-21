@@ -1,19 +1,21 @@
 package src;
 
-public class Distance {
+public class Route {
 	Point point1;
 	Point point2;
 	int RADIUS = 6371;
 	
-	public Distance(Point point1, Point point2) {
+	public Route(Point point1, Point point2) {
 		this.point1 = point1;
 		this.point2 = point2;
 	}
-
-	/** calcaulate the distance of two points with the haversine formula 
-	 ** see the formula on https://www.movable-type.co.uk/scripts/latlong.html 
+	
+	/**
+	 * calcaulate the distance in km of two points with the haversine formula 
+	 * see the formula on https://www.movable-type.co.uk/scripts/latlong.html 
+	 * @return
 	 */
-	public double calculateDistanceOfTwoPointsInKm() {
+	public double calculateDistanceOfTwoPoints() {
 		double dLat = Math.toRadians(point1.getDegreeOfLatitude() - point2.getDegreeOfLatitude());
 		double dLong = Math.toRadians(point2.getDegreeOfLongitude() - point1.getDegreeOfLongitude());
         double lat1 = Math.toRadians(point1.getDegreeOfLatitude());
@@ -27,5 +29,7 @@ public class Distance {
         
         return Math.round(d * 100.0) / 100.0;
 	}
+	
+	
 
 }

@@ -8,18 +8,22 @@ public class Main {
 		CSVReader csvReader = new CSVReader("./assets/msg_standorte_deutschland.csv", ",");
 		ArrayList<Location> locations = csvReader.readCSV();
 		
-		Point point1 = locations.get(0).getPoint();
-		Point point2 = locations.get(1).getPoint();
-		Distance distance = new Distance(point1, point2);
-		Double distanceKm = distance.calculateDistanceOfTwoPointsInKm();
-		System.out.println(distanceKm);
-		
-		
-		/*
-		for(Location location : locations) {
-			System.out.print(location.toString());
-		}
-		*/
+		int i = 0;
+        while (i < locations.size()) {
+        	int j = i + 1;
+        	Point currentPoint = locations.get(i).getPoint();
+        	while(j < locations.size()) {
+        		if (locations.get(i) != locations.get(j)) {
+        			Point nextPoint = locations.get(j).getPoint();
+        			Route route = new Route(currentPoint, nextPoint);
+        			Double distance = route.calculateDistanceOfTwoPoints();
+        			System.out.println("Number1:" + locations.get(i).getNumber()+ 
+        					" Number2: "+ locations.get(j).getNumber() + " Distanz: " +distance);
+        		}
+        		j++;
+        	}
+        	System.out.println();
+            i++;
+        }
 	}
-
 }
