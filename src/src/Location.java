@@ -7,8 +7,7 @@ public class Location {
 	String houseNumber;
 	String postCode;
 	String place;
-	Double degreeOfLatitude;
-	Double degreeOfLongitude;
+	Point point;
 	
 	public int getNumber() {
 		return number;
@@ -57,27 +56,19 @@ public class Location {
 	public void setPlace(String place) {
 		this.place = place;
 	}
-	
-	public Double getDegreeOfLatitude() {
-		return degreeOfLatitude;
+
+	public Point getPoint() {
+		return point;
 	}
-	
-	public void setDegreeOfLatitude(Double degreeOfLatitude) {
-		this.degreeOfLatitude = degreeOfLatitude;
-	}
-	
-	public Double getDegreeOfLongitude() {
-		return degreeOfLongitude;
-	}
-	
-	public void setDegreeOfLongitude(Double degreeOfLongitude) {
-		this.degreeOfLongitude = degreeOfLongitude;
+
+	public void setPoint(Point point) {
+		this.point = point;
 	}
 
 	@Override
 	public String toString() {
 		return "Location [number=" + number + ", name=" + name + ", street=" + street + ", houseNumber=" + houseNumber
-				+ ", postCode=" + postCode + ", place=" + place + ", degreeOfLatitude=" + degreeOfLatitude
-				+ ", degreeOfLongitude=" + degreeOfLongitude + "]";
+				+ ", postCode=" + postCode + ", place=" + place + ", degreeOfLatitude=" + point.getDegreeOfLatitude()
+				+ ", degreeOfLongitude=" + point.getDegreeOfLongitude() + "]";
 	}
 }

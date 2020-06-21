@@ -34,8 +34,8 @@ public class CSVReader {
             	location.setHouseNumber(currentLine[3]);
             	location.setPostCode(currentLine[4]);
             	location.setPlace(currentLine[5]);
-            	location.setDegreeOfLatitude(Double.parseDouble(currentLine[6]));
-            	location.setDegreeOfLongitude(Double.parseDouble(currentLine[7]));
+            	Point point = new Point(Double.parseDouble(currentLine[6]), Double.parseDouble(currentLine[7]));
+            	location.setPoint(point);
             	locations.add(location);
             }
         } catch (IOException e) {
