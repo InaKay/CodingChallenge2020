@@ -17,8 +17,8 @@ public class Main {
         			Point nextPoint = locations.get(j).getPoint();
         			Route route = new Route(currentPoint, nextPoint);
         			Double distance = route.calculateDistanceOfTwoPoints();
-        			System.out.println("Number1:" + locations.get(i).getNumber()+ 
-        					" Number2: "+ locations.get(j).getNumber() + " Distanz: " +distance);
+        			System.out.println(locations.get(i).getNumber()+ 
+        					" => "+ locations.get(j).getNumber() + " : " +distance);
         		}
         		j++;
         	}
