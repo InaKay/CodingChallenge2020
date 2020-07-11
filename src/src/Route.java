@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Route {
-	ArrayList<Location> locations = new ArrayList<Location>();
+	public ArrayList<Location> locations = new ArrayList<Location>();
 
 	public Route(ArrayList<Location> locations) {
 		this.locations.addAll(locations);

@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CSVReader {
-	String csvFile;
-    String csvSplitBy;
+	public String csvFile;
+    public String csvSplitBy;
     
 	public CSVReader(String csvFile, String csvSplitBy) {
 		this.csvFile = csvFile;
@@ -35,7 +35,7 @@ public class CSVReader {
             	location.setPostCode(currentLine[4]);
             	location.setPlace(currentLine[5]);
             	Coordinate point = new Coordinate(Double.parseDouble(currentLine[6]), Double.parseDouble(currentLine[7]));
-            	location.setPoint(point);
+            	location.setCoordinate(point);
             	locations.add(location);
             }
         } catch (IOException e) {
