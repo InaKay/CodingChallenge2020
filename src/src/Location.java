@@ -7,7 +7,8 @@ public class Location {
 	String houseNumber;
 	String postCode;
 	String place;
-	Point point;
+	Coordinate point;
+	int RADIUS = 6371;
 	
 	public int getNumber() {
 		return number;
@@ -57,18 +58,41 @@ public class Location {
 		this.place = place;
 	}
 
-	public Point getPoint() {
+	public Coordinate getPoint() {
 		return point;
 	}
 
-	public void setPoint(Point point) {
+	public void setPoint(Coordinate point) {
 		this.point = point;
 	}
 
 	@Override
 	public String toString() {
-		return "Location [number=" + number + ", name=" + name + ", street=" + street + ", houseNumber=" + houseNumber
-				+ ", postCode=" + postCode + ", place=" + place + ", degreeOfLatitude=" + point.getDegreeOfLatitude()
-				+ ", degreeOfLongitude=" + point.getDegreeOfLongitude() + "]";
+		return this.getName();
+	}
+	
+	/**
+	 * calcaulate the distance in km between two locations with the haversine formula 
+	 * see the formula on https://www.movable-type.co.uk/scripts/latlong.html 
+	 * @return
+	 */
+	public double calculateDistance(Location location) {
+		double degreeOfLatitude1 = this.getPoint().getDegreeOfLatitude();
+		double degreeOfLongitude1 = this.getPoint().getDegreeOfLongitude();
+		double degreeOfLatitude2 = location.getPoint().getDegreeOfLatitude();
+		double degreeOfLongitude2 = location.getPoint().getDegreeOfLongitude();
+		
+		double dLat = Math.toRadians(degreeOfLatitude1 - degreeOfLatitude2);
+		double dLong = Math.toRadians(degreeOfLongitude2 - degreeOfLongitude1);
+        double lat1 = Math.toRadians(degreeOfLatitude1);
+        double lat2 = Math.toRadians(degreeOfLatitude2);
+        
+        double a = Math.pow(Math.sin(dLat / 2), 2)
+        		+ Math.cos(lat1) * Math.cos(lat2) 
+        		* Math.pow(Math.sin(dLong / 2), 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        double d = this.RADIUS * c;
+        
+        return Math.round(d * 100.0) / 100.0;
 	}
 }

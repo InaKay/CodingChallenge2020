@@ -29,12 +29,12 @@ public class CSVReader {
             	currentLine = line.split(csvSplitBy);
             	Location location = new Location();
             	location.setNumber(Integer.parseInt(currentLine[0]));
-            	location.setName(currentLine[1]);
+            	location.setName(new String(currentLine[1].getBytes("ISO-8859-1"), "UTF-8")); //encode the umlauts
             	location.setStreet(currentLine[2]);
             	location.setHouseNumber(currentLine[3]);
             	location.setPostCode(currentLine[4]);
             	location.setPlace(currentLine[5]);
-            	Point point = new Point(Double.parseDouble(currentLine[6]), Double.parseDouble(currentLine[7]));
+            	Coordinate point = new Coordinate(Double.parseDouble(currentLine[6]), Double.parseDouble(currentLine[7]));
             	location.setPoint(point);
             	locations.add(location);
             }
