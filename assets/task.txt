@@ -1,0 +1,44 @@
+DIE CHALLENGE
+
+Du möchtest natürlich Deinem neuen Arbeitgeber gleich zeigen, dass Du es drauf hast. 
+Entwickle einen Algorithmus, der Dich auf dem kürzesten Weg zu jedem Standort der msg führt. 
+Dabei startest Du in der msg-Zentrale in Ismaning und kehrst auch dorthin wieder zurück. 
+Unterwegs darfst Du jeden Standort nur einmal aufsuchen. 
+Wie Du bei der Ermittlung des Pfades vorgehst, entscheidest Du selbst.
+
+Dein Ziel ist es, so effizient wie möglich alle Standorte zu bereisen, um dort Dein Wissen zu teilen.
+
+
+ZEIG DEINE SKILLS
+
+Zunächst sind die Entfernungen zwischen den Standorten zu ermitteln. 
+Hierzu kannst Du ein Verfahren Deiner Wahl anwenden. 
+Die Standorte mit ihren Geokoordinaten findest Du in dieser Tabelle:
+
+» CSV-Download
+
+Und dann gilt es natürlich, die kürzest mögliche Route mit einem smarten Algorithmus herauszufinden. 
+Bei den Programmiersprachen hast Du die Wahl zwischen: C#, Java, JavaScript oder Python.
+
+Wenn wir uns Deine Lösung ansehen, dann werden wir sie nach den folgenden Kriterien beurteilen:
+
+- Korrektheit der Lösung
+- Wahl des Algorithmus
+- Verständlichkeit des Codes
+- Ausführbarkeit des Codes
+
+Und für besondere Kreativität gibt es zusätzliche Punkte.
+
+
+SO BIST DU DABEI
+
+Sende uns einfach einen Link (z. B. über Google Drive, Dropbox, GitHub, Gitlab, …) über das Kontaktformular weiter unten. 
+Dort sollte folgendes enthalten sein:
+
+- Dein Quellcode – einschließlich einer kurzen Dokumentation, wie ein (technisch versierter) Benutzer ihn auf einem Linux- oder Windows-System ausführen kann
+- eine kurze Begründung für den gewählten Algorithmus (ein Satz reicht)
+- die optimale Abfolge der Standorte (inkl. Gesamtentfernung)
+
+Ob Du gewonnen hast, erfährst Du per Mail und natürlich bei uns auf Facebook & Instagram.
+
+Einsendeschluss: 19. Juli 2020

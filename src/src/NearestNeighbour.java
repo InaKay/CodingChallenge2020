@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.logging.Logger;
 
 public class NearestNeighbour {
-	
-	public Route findShortestRoute(ArrayList<Location> locations) {
+
+	public Route findShortestRoute(ArrayList<Location> locations, int startLocationIndex) {
 		ArrayList<Location> shortestRouteLocations = new ArrayList<Location>(locations.size());
 		Route route = new Route(locations);
 		Location startLocation = new Location();
@@ -16,7 +16,7 @@ public class NearestNeighbour {
 		printTotalDistance(route);
 		printSeparator();
 		
-		Location location = locations.get(0); // start at the headquarter
+		Location location = locations.get(startLocationIndex); // default start at the headquarter
 		startLocation = location;
 		updateRoute(shortestRouteLocations, locations, location);
 		
@@ -60,19 +60,19 @@ public class NearestNeighbour {
 	}
 	
 	private void printAllLocations(ArrayList<Location> locations) {
-		System.out.println("Location names: " + Arrays.toString(locations.toArray()));
+		System.out.println("Standortnamen: " + Arrays.toString(locations.toArray()));
 	}
 	
 	private void printTotalDistance(Route route) {
-		System.out.println("Total distance: " + route.calculateTotalDistance());
+		System.out.println("Gesamtentfernung: " + route.calculateTotalDistance());
 	}
 	
 	private void printRouteInformations(ArrayList<Location> visitedRoutes, Location nextLocation) {
-		System.out.println("Visted Locations: " + Arrays.toString(visitedRoutes.toArray()));
-		System.out.println("Next Location: " + nextLocation.getName() + "\n");
+		System.out.println("Besuchte Standorte: " + Arrays.toString(visitedRoutes.toArray()));
+		System.out.println("Nächster Standort: " + nextLocation.getName() + "\n");
 	}
 	
 	private void printShortestRouteInformations(Route shortestRoute) {
-		System.out.println("Shortest route: " + shortestRoute);
+		System.out.println("kürzeste Route: " + shortestRoute);
 	}
 }

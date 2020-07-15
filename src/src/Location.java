@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Scanner;
+
 public class Location {
 	public int number;
 	public String name;
@@ -95,4 +97,35 @@ public class Location {
         
         return Math.round(d * 100.0) / 100.0;
 	}
+	
+	public Location createNewLocation(Scanner scanner) {
+		Location location = new Location();
+		String input = "";
+		
+		System.out.println("Nummer: ");
+		input = scanner.next();
+		location.setNumber(Integer.parseInt(input));
+		System.out.println("Name: ");
+		input = scanner.next();
+		location.setName(input);
+		System.out.println("Hausnummer: ");
+		input = scanner.next();
+		location.setHouseNumber(input);
+		System.out.println("Postleitzahl: ");
+		input = scanner.next();
+		location.setPostCode(input);
+		System.out.println("Ort: ");
+		input = scanner.next();
+		location.setPlace(input);
+		System.out.println("Breitengrad: ");
+		input = scanner.next();
+		double degreeOfLatitude = Double.parseDouble(input);
+		System.out.println("Längengrad: ");
+		input = scanner.next();
+		double degreeOfLongitude = Double.parseDouble(input);
+		location.setCoordinate(new Coordinate(degreeOfLatitude, degreeOfLongitude));
+		
+		return location;
+	}
+	
 }
