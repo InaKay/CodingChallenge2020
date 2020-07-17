@@ -19,25 +19,32 @@ public class Main {
 		CSVReader csvReader = new CSVReader("./assets/msg_standorte_deutschland.csv", ",");
 		System.out.println("CSV erfolgreich eingelesen");
 		ArrayList<Location> locations = csvReader.readCSV();
-
+		
 		while (true) {
 			if (firstRun) {
-				System.out.println("Wollen Sie einen weiteren Standort eingeben? (j = Ja / n = Nein)");
+				System.out.println(
+						"Wollen Sie einen weiteren Standort eingeben? (j = Ja / n = Nein / q = Programm beenden)");
 				input = scanner.next();
 				if (input.equals("j")) {
 					Location location = new Location();
 					location = location.createNewLocation(scanner);
 					locations.add(location);
 					firstRun = false;
+				} else if (input.equals("q")) {
+					break;
 				} else if (!(input.equals("n"))) {
 					System.out.println("Die Eingabe war ungültig");
 					continue;
 				}
 			}
 
-			System.out.println("Ab welchen Standort wollen Sie starten? (z = msg-Zentrale / Standortnamen)");
+			System.out.println(
+					"Ab welchen Standort wollen Sie starten? (z = msg-Zentrale / Standortnamen / q = Programm beenden)");
 			input = scanner.next();
-
+			if (input.equals("q")) {
+				break;
+			}
+			
 			boolean findLocationName = false;
 			int startLocationIndex = 0;
 			int index = 0;
@@ -59,11 +66,11 @@ public class Main {
 			}
 
 			NearestNeighbour nearestNeighbour = new NearestNeighbour();
-			nearestNeighbour.findShortestRoute(locations, startLocationIndex);
+			ArrayList<Location> routeLocations = (ArrayList<Location>) locations.clone();
+			nearestNeighbour.findShortestRoute(routeLocations, startLocationIndex);
 		}
 
-		/*
-		 * System.out.println("Programm wurde beendet"); scanner.close();
-		 */
+		System.out.println("Programm wurde beendet");
+		scanner.close();
 	}
 }

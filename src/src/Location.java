@@ -101,10 +101,12 @@ public class Location {
 	public Location createNewLocation(Scanner scanner) {
 		Location location = new Location();
 		String input = "";
-		
+
 		System.out.println("Nummer: ");
 		input = scanner.next();
-		location.setNumber(Integer.parseInt(input));
+		double formatNumber = isNumeric(input, scanner);
+		location.setNumber((int)formatNumber);
+		
 		System.out.println("Name: ");
 		input = scanner.next();
 		location.setName(input);
@@ -117,15 +119,29 @@ public class Location {
 		System.out.println("Ort: ");
 		input = scanner.next();
 		location.setPlace(input);
+		
 		System.out.println("Breitengrad: ");
 		input = scanner.next();
-		double degreeOfLatitude = Double.parseDouble(input);
+		double degreeOfLatitude = isNumeric(input, scanner);
 		System.out.println("Längengrad: ");
 		input = scanner.next();
-		double degreeOfLongitude = Double.parseDouble(input);
+		double degreeOfLongitude = isNumeric(input, scanner);
 		location.setCoordinate(new Coordinate(degreeOfLatitude, degreeOfLongitude));
 		
 		return location;
 	}
 	
+	private double isNumeric(String str, Scanner scanner) {
+		double result = 0.0;
+		
+		try {
+			result = Double.parseDouble(str);
+		} catch (NumberFormatException e) {
+			System.out.println("Die Eingabe ist keine Zahl");
+			System.out.println("Bitte wiederholen Sie die Eingabe");
+			str = scanner.next();
+			isNumeric(str, scanner);
+		}
+		return result;
+	}
 }
